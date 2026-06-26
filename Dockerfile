@@ -1,0 +1,16 @@
+FROM golang:1.25-alpine AS builder
+
+WORKDIR /app
+COPY go.mod go.sum* ./
+RUN go mod download 2>/dev/null || true
+COPY . .
+RUN CGO_ENABLED=0 go build -trimpath -o taskpilot ./cmd/taskpilot
+
+FROM alpine:3.20
+RUN apk add --no-cache ca-certificates
+WORKDIR /app
+COPY --from=builder /app/taskpilot .
+EXPOSE 8080
+VOLUME ["/app/data"]
+ENV TASKPILOT_DB=/app/data/taskpilot.json
+CMD ["./taskpilot"]

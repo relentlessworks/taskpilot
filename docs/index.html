@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TaskPilot — Agentic-First Task Manager</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2rem;
+      background: #0d1117;
+      color: #c9d1d9;
+      line-height: 1.6;
+    }
+    h1 { color: #58a6ff; }
+    h2 { color: #8b949e; margin-top: 2rem; }
+    code {
+      background: #161b22;
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      font-size: 0.9em;
+      color: #79c0ff;
+    }
+    pre {
+      background: #161b22;
+      padding: 1rem;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+    pre code { background: none; color: #c9d1d9; }
+    a { color: #58a6ff; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .tag {
+      display: inline-block;
+      background: #1f6feb;
+      color: #fff;
+      padding: 0.1rem 0.5rem;
+      border-radius: 12px;
+      font-size: 0.8em;
+      margin-left: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>TaskPilot <span class="tag">v0.1.0</span></h1>
+  <p>Agentic-first task manager. The agent IS the interface.</p>
+
+  <p>TaskPilot is a task management service designed for AI agents to drive over plain HTTP.
+  No UI, no SDK. The API is the product.</p>
+
+  <h2>Quick Start</h2>
+  <pre><code>make build
+./taskpilot</code></pre>
+
+  <h2>API</h2>
+  <pre><code>POST   /auth/request        email=me@example.com&workspace=ws_demo
+POST   /auth/verify          email=me@example.com&code=123456
+POST   /api/tasks            title=Fix bug&priority=high
+GET    /api/tasks            [?status=todo|in_progress|done]
+GET    /api/tasks/<handle>
+PATCH  /api/tasks/<handle>   status=done
+DELETE /api/tasks/<handle>
+GET    /api/workspace
+GET    /help</code></pre>
+
+  <h2>Links</h2>
+  <ul>
+    <li><a href="https://github.com/relentlessworks/taskpilot">GitHub Repository</a></li>
+    <li><a href="https://github.com/relentlessworks/taskpilot/releases">Releases</a></li>
+  </ul>
+</body>
+</html>

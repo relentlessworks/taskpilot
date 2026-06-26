@@ -1,0 +1,15 @@
+# Binaries
+taskpilot
+taskpilot.exe
+*.exe
+
+# Data files
+taskpilot.json
+*.json
+
+# Build artifacts
+dist/
+
+# OS files
+.DS_Store
+Thumbs.db
