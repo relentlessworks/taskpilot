@@ -34,6 +34,7 @@ jobs:
         uses: actions/setup-go@v5
         with:
           go-version: "1.25.x"
+          cache: false
 
       - name: Vet
         run: go vet ./...
@@ -49,7 +50,7 @@ jobs:
 
       - name: Build
         run: |
-          CGO_ENABLED=0 go build -trimpath ./cmd/taskpilot
+          CGO_ENABLED=0 go build -trimpath -o taskpilot ./cmd/taskpilot
 
   cross-compile:
     name: Build (${{ matrix.goos }}/${{ matrix.goarch }})
@@ -80,6 +81,7 @@ jobs:
         uses: actions/setup-go@v5
         with:
           go-version: "1.25.x"
+          cache: false
 
       - name: Cross-compile
         env:
