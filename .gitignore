@@ -1,6 +1,6 @@
 # Binaries
-taskpilot
-taskpilot.exe
+/taskpilot
+/taskpilot.exe
 *.exe
 
 # Data files
